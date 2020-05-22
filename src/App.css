@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: Arkitech;
+  src: url("./fonts/Arkitech Medium.ttf");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  font-family: Arkitech;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-image: linear-gradient(240deg, black, rgba(255, 255, 255, 0.1));
+  width: 100vw;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav {
+  margin-right: 2%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 50vh;
 }
 
-.App-link {
-  color: #61dafb;
+nav ul li {
+  list-style-type: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav ul li:first-of-type {
+  margin-bottom: 2%;
 }
+
+nav ul li:first-of-type img {
+  width: 80px;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+}
+
+nav ul li a {
+  color: lightgray;
+  text-decoration: none;
+}
+
+nav ul li a span {
+  position: relative;
+  bottom: 2px;
+  font-size: 0.8em;
+}
+
+nav ul li a i {
+  position: relative;
+}
+
+.loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: lightgray;
+  height: 70vh;
+  width: 70vw;
+  margin: 15vh auto;
+  font-size: 0.8em;
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0 18px 2px black;
+          box-shadow: 0 0 18px 2px black;
+  border-radius: 4px;
+}
+
+.loading img {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.loading div:nth-of-type(2) {
+  width: 50%;
+  height: 5px;
+  background-color: lightgray;
+  -webkit-box-shadow: 0 0 4px 1px black;
+          box-shadow: 0 0 4px 1px black;
+  border-radius: 5px;
+  margin-bottom: 4px;
+}
+
+.loading div:nth-of-type(2) span {
+  display: block;
+  height: 5px;
+  background-color: red;
+}
+/*# sourceMappingURL=App.css.map */
