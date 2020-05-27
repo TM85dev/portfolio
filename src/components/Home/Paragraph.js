@@ -1,0 +1,25 @@
+import React, { useEffect } from 'react'
+import { useSprings, animated } from 'react-spring'
+
+function Paragraph() {
+    const paragraph = "Front End Developer"
+    const [show, setShow] = useSprings(paragraph.split("").length, index => ({
+        from: {transform: "translate(20px, 20px) rotate(90deg) scale(0, 0)", opacity: 0},
+        to: {transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)", opacity: 1},
+        delay: 3000 + (100 * index)
+    }))
+    const word = paragraph.split("").map((letter, index) => {
+        return (
+            <animated.span style={show[index]} key={index}>
+                {letter===" " ? "\xA0" : letter}
+            </animated.span>
+        )
+    })
+    return(
+        <div>
+            <p>{word}</p>
+        </div>
+    )
+}
+
+export default Paragraph

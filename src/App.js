@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring'
 import MainMenu from "./components/MainMenu"
 import './App.css'
 import Loading from './components/Loading'
+import HomePage from './components/Home/Index'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -14,10 +15,11 @@ function App() {
     setTimeout(() => {
       setLoading(false)
     }, 2300)
-  })
+  }, [])
   return (
     <div className="app">
       {loading ? <Loading /> : site}
+      {loading ? "" : <HomePage />}
     </div>
   );
 }
