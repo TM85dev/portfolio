@@ -4,6 +4,8 @@ import MainMenu from "./components/MainMenu"
 import './App.css'
 import Loading from './components/Loading'
 import HomePage from './components/Home/Index'
+import Skills from './components/Skills/Index'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -18,8 +20,17 @@ function App() {
   }, [])
   return (
     <div className="app">
-      {loading ? <Loading /> : site}
-      {loading ? "" : <HomePage />}
+      <Router>
+        {loading ? <Loading /> : site}
+        <Switch>
+          <Route exact path="/">
+            {loading ? "" : <HomePage />}
+          </Route>
+          <Route exact path="/skills">
+            {loading ? "" : <Skills />}
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

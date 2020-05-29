@@ -2,14 +2,15 @@ import React, { useEffect } from 'react'
 import { useSpring, useSprings, animated, config } from 'react-spring'
 import LinkItem from './LinkItem'
 import logo from '../logo.png'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 function MainMenu() {
     const data = [
-        {id:0, name: "Home", icon: "flaticon-home"},
-        {id:1, name: "Skills", icon: "flaticon-wrench"},
-        {id:2, name: "Projects", icon: "flaticon-monitor"},
-        {id:3, name: "About_Me", icon: "flaticon-person"},
-        {id:4, name: "Contact", icon: "flaticon-contact"}
+        {id:0, name: "Home", icon: "flaticon-home", route: "/"},
+        {id:1, name: "Skills", icon: "flaticon-wrench", route: "/skills"},
+        {id:2, name: "Projects", icon: "flaticon-monitor", route: "/projects"},
+        {id:3, name: "About_Me", icon: "flaticon-person", route: "/about-me"},
+        {id:4, name: "Contact", icon: "flaticon-contact", route: "contact"}
     ]
 
     const [linkItemAnim, setLinkItemAnim] = useSprings(data.length, index => ({
@@ -28,6 +29,7 @@ function MainMenu() {
                 <LinkItem
                     name={item.name.toUpperCase()} 
                     icon={item.icon}
+                    route={item.route}
                 />
             </animated.li>
         )
@@ -42,15 +44,15 @@ function MainMenu() {
         }, 600)
     })
     return(
-        <nav>
-            <animated.div style={bgMenu} className="menu-bg"></animated.div>
+        <animated.nav style={bgMenu}>
+            <div className="menu-bg"></div>
             <ul>
                 <li>
                     <img src={logo} alt="text" />
                 </li>
                 {list}
             </ul>
-        </nav>
+        </animated.nav>
     )
 }
 

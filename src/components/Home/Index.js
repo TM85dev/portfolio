@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useSpring, animated, config } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import logo from "../../logo.png"
 import Header from './Header'
 import Paragraph from './Paragraph'
@@ -7,21 +7,23 @@ import Button from './Button'
 
 function HomePage() {
     const [show] = useSpring( () => ({
-        from: {transform: "translateX(-100px)", opacity: 0},
-        to: {transform: "translateX(0px)", opacity: 1}, 
-        delay: 600,
-        config: config.wobbly
-    }))
-    const [logoAnim, setLogoAnim] = useSpring(() => ({
         from: {opacity: 0},
-        to: [{opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.5}, {opacity: 0.7}, {opacity: 0.9}, {opacity: 1}], delay: 1600, config: {duration: 20}
+        to: {opacity: 1}
+    }))
+    const [logoAnim] = useSpring(() => ({
+        from: {opacity: 0, marginTop: "50px"},
+        to: [{opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.5}, {opacity: 0.7}, {opacity: 0.9}, {opacity: 1}], delay: 600, config: {duration: 20}
     }))
     const [showHeader, setShowHeader] = useState(false)
+    const [showbuttons, setShowButtons] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
             setShowHeader(true)
-        }, 2000)
+            setTimeout(() => {
+                setShowButtons(true)
+            }, 2000)
+        }, 1000)
     }, [])
     return(
         <animated.main style={show}>
@@ -29,8 +31,7 @@ function HomePage() {
             {showHeader && <Header />}
             {showHeader && <Paragraph />}
             <div className="buttons">
-                {showHeader && <Button text="About Me" />}
-                {showHeader && <Button text="Contact" />}
+                {showbuttons && <><Button text="About Me" delay={1} /><Button text="Contact" delay={2} /></>}
             </div>
         </animated.main>
     )

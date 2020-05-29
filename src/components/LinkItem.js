@@ -1,9 +1,10 @@
 import React from 'react'
 import  { useSpring, useSprings, animated } from 'react-spring'
+import { NavLink } from 'react-router-dom'
 
 function LinkItem(props) {
     const [iconAnim, setIconAnim] = useSpring(() => ({
-        transform: "scale(1)", color: "white"
+        transform: "scale(1)"
     }))
     const word = props.name.split("")
     const [letterAnim, setLetterAnim] = useSprings(word.length, index => ({
@@ -20,20 +21,20 @@ function LinkItem(props) {
         )
     })
 
-    const hoverHandler = () => {
-        setIconAnim(() => ({
-            transform: "scale(1.4)", color: "red"
-        }))
+    const hoverHandler = (e) => {
+            setIconAnim(() => ({
+                transform: "scale(1.4)"
+            }))
         setLetterAnim(index => ({
             from: {transform: "translateX(20px)", opacity: 0},
             transform: "translateX(0px)", opacity: 1,
             delay: 50 * index
         }))
     }
-    const unhoverHandler = () => {
-        setIconAnim(() => ({
-            transform: "scale(1)", color: "white"
-        }))
+    const unhoverHandler = (e) => {
+            setIconAnim(() => ({
+                transform: "scale(1)", color: "white"
+            }))
         setLetterAnim(index => ({
             from: {transform: "translateX(0px)", opacity: 1},
             transform: "translateX(-20px)", opacity: 0,
@@ -41,16 +42,21 @@ function LinkItem(props) {
             reset: true
         }))
     }
+    const clickHandler = () => {
+
+    }
     return(
         <div>
-            <a href="#">
-                <animated.span 
-                    className={props.icon} 
-                    style={iconAnim} 
-                    onMouseOver={hoverHandler} 
-                    onMouseLeave={unhoverHandler}>
-                </animated.span>
-            </a>
+            <animated.span style={iconAnim} >
+                <NavLink exact to={props.route} activeClassName="selected">
+                    <span 
+                        className={props.icon} 
+                        onMouseOver={hoverHandler} 
+                        onMouseLeave={unhoverHandler}
+                        onClick={clickHandler}>
+                    </span>
+                </NavLink>
+            </animated.span>
             <span>{letterList}</span>
         </div>
     )

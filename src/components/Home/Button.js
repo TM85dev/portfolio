@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSpring, useSprings, animated, config } from 'react-spring'
 
 function Button(props) {
@@ -13,7 +13,7 @@ function Button(props) {
     const leftSide = rightArrows.map((item, index) => <animated.span style={leftSideAnim[index]}>{item}</animated.span>)
     const rightSide = leftArrows.map((item, index) => <animated.span style={rightSideAnim[index]}>{item}</animated.span>)
     const [buttonAnim, setButtonAnim] = useSpring(() => ({
-        backgroundColor: "rgba(250, 0, 0, 0)"
+        backgroundColor: "rgba(250, 0, 0, 0)", opacity: 0
     }))
     const hoverHandler = () => {
         setButtonAnim(() => ({
@@ -54,8 +54,13 @@ function Button(props) {
             delay: 100 * index
         }))
     }
+    useEffect(() => {
+        setButtonAnim(() => ({
+            opacity: 1, delay: 400 * props.delay
+        }))
+    })
     return(
-        <div className="button">
+        <div>
             <animated.button 
                 style={buttonAnim}
                 onMouseOver={hoverHandler}
