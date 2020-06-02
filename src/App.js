@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useSpring, animated } from 'react-spring'
 import MainMenu from "./components/MainMenu"
 import './App.css'
 import Loading from './components/Loading'
 import HomePage from './components/Home/Index'
 import Skills from './components/Skills/Index'
+import Projects from './components/Projects/Index'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -28,6 +28,9 @@ function App() {
           </Route>
           <Route exact path="/skills">
             {loading ? "" : <Skills />}
+          </Route>
+          <Route exact path="/projects">
+            {loading ? "" : <Projects />}
           </Route>
         </Switch>
       </Router>

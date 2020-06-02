@@ -352,7 +352,8 @@ main button span:nth-of-type(4) {
   margin-left: 10px;
 }
 
-main .skills {
+main .skills,
+main .projects {
   position: relative;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -365,7 +366,8 @@ main .skills {
   z-index: 1;
 }
 
-main .skills h1 {
+main .skills h1,
+main .projects h1 {
   margin: 0 0 calc(4px + 1vw) 0;
   font-size: calc(16px + 1vw);
   text-transform: uppercase;
@@ -491,5 +493,116 @@ main .line {
   main .line {
     display: none;
   }
+}
+
+main .projects-list {
+  margin-top: 80px;
+  padding-bottom: 50px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+}
+
+main .projects-list > div:first-of-type > div {
+  position: relative;
+}
+
+main .projects-list > div:first-of-type > div span {
+  width: calc(200px + 1vw);
+  height: calc(126px + 1vw);
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 20px 40px;
+  background-color: black;
+  opacity: 0.6;
+  border-radius: 20px;
+  z-index: 1;
+  cursor: pointer;
+}
+
+main .projects-list > div:first-of-type > div span button {
+  -webkit-box-shadow: 0 0 2px 1px;
+          box-shadow: 0 0 2px 1px;
+  padding: 10px 15px;
+  font-size: 12px;
+}
+
+main .projects-list > div:first-of-type > div img {
+  width: calc(200px + 1vw);
+  margin: 20px 40px;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 16px 5px gray;
+          box-shadow: 0 0 16px 5px gray;
+}
+
+main .projects-list > div:first-of-type > div p {
+  margin-top: -10px;
+  text-align: center;
+  font-size: 12px;
+  color: lightgray;
+}
+
+main .projects-list > div:last-of-type {
+  width: 100%;
+}
+
+main .projects-list > div:last-of-type div {
+  position: absolute;
+  background-color: #141414;
+  padding: 10px 0 20px 0;
+  margin: 0 2%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 16px 0 #6b6b6b;
+          box-shadow: 0 0 16px 0 #6b6b6b;
+  color: lightgray;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  text-transform: uppercase;
+  width: calc(5% + 40vw);
+}
+
+main .projects-list > div:last-of-type div h3 {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-bottom: 1px;
+  -webkit-box-shadow: 0 1px 1px 0px white;
+          box-shadow: 0 1px 1px 0px white;
+  font-size: calc(12px + 0.3vw);
+}
+
+main .projects-list > div:last-of-type div ul {
+  font-size: calc(10px + 0.2vw);
+}
+
+main .projects-list > div:last-of-type div ul li {
+  margin-left: 50px;
+  line-height: 26px;
+}
+
+main .projects-list > div:last-of-type div ul li:first-of-type {
+  line-height: 30px;
 }
 /*# sourceMappingURL=App.css.map */

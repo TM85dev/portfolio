@@ -229,7 +229,8 @@ main {
             margin-left: 10px;
         }
     }
-    .skills {
+    .skills,
+    .projects {
         position: relative;
         align-self: flex-start;
         left:0;
@@ -330,6 +331,81 @@ main {
         margin-top: 10px;
         @media screen and (max-width: 900px) {
             display: none;
+        }
+    }
+    .projects-list {
+        margin-top: 80px;
+        padding-bottom: 50px;
+        align-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        &>div:first-of-type>div {
+            position: relative;
+            span {
+                width: calc(200px + 1vw);
+                height: calc(126px + 1vw);
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                margin: 20px 40px;
+                background-color: black;
+                opacity: 0.6;
+                border-radius: 20px;
+                z-index: 1;
+                cursor: pointer;
+                button {
+                    box-shadow: 0 0 2px 1px;
+                    padding: 10px 15px;
+                    font-size: 12px;
+                }
+            }
+            img {
+                width: calc(200px + 1vw);
+                margin: 20px 40px;
+                border-radius: 20px;
+                box-shadow: 0 0 16px 5px gray;
+            }
+            p {
+                margin-top: -10px;
+                text-align: center;
+                font-size: 12px;
+                color: lightgray;
+            }
+        }
+        &>div:last-of-type {
+            width: 100%;
+            div {
+                position: absolute;
+                background-color: rgb(20, 20, 20);
+                padding: 10px 0 20px 0;
+                margin: 0 2%;
+                border-radius: 10px;
+                box-shadow: 0 0 16px 0 rgb(107, 107, 107);
+                color: lightgray;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                text-transform: uppercase;
+                width: calc(5% + 40vw);
+                h3 {
+                    align-self: center;
+                    margin-bottom: 1px;
+                    box-shadow: 0 1px 1px 0px white;
+                    font-size: calc(12px + 0.3vw);
+                }
+                ul {
+                    font-size: calc(10px + 0.2vw);
+                    li {
+                        &:first-of-type {
+                            line-height: 30px;
+                        }
+                        margin-left: 50px;
+                        line-height: 26px;
+                    }
+                }
+            }
         }
     }
 }
