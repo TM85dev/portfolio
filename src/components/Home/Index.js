@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 import logo from "../../logo.png"
 import Header from './Header'
@@ -31,7 +32,15 @@ function HomePage() {
             {showHeader && <Header />}
             {showHeader && <Paragraph />}
             <div className="buttons">
-                {showbuttons && <><Button text="About Me" delay={1} /><Button text="Contact" delay={2} /></>}
+                {showbuttons && 
+                <>
+                    <NavLink exact to="/about-me">
+                        <Button text="About Me" delay={1} />
+                    </NavLink>
+                    <NavLink exact to="/contact">
+                        <Button text="Contact" delay={2} />
+                    </NavLink>
+                </>}
             </div>
         </animated.main>
     )

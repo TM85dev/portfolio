@@ -4,7 +4,7 @@ import { useSprings, animated } from 'react-spring'
 function Paragraph() {
     const paragraph = "Front End Developer"
     const [show, setShow] = useSprings(paragraph.split("").length, index => ({
-        from: {transform: "translate(20px, 20px) rotate(90deg) scale(0, 0)", opacity: 0},
+        from: {transform: "translate(120px, 120px) rotate(90deg) scale(4, 4)", opacity: 0},
         to: {transform: "translate(0px, 0px) rotate(0deg) scale(1, 1)", opacity: 1},
         delay: 3000 + (100 * index)
     }))

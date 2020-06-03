@@ -27,14 +27,14 @@ function Projects() {
     
     const projectsList = data.map((project, index) => {
         return(
-            <Project project={project} setVisible={setVisible} delay={index} />
+            <Project project={project} setVisible={setVisible} delay={index} key={index} />
         )
     })
     const infoList = data.map((item, index) => {
         return(
             <span key={index}>
             {isVisible[index] ? <Info visible={isVisible[index]} project={item} /> :
-            isVisible[5] ? <animated.div style={defaultInfo}><h3>Select one project</h3></animated.div> : ""}
+            isVisible[5] ? <animated.div style={defaultInfo} className="default-info"><h3>Select one project</h3></animated.div> : ""}
             </span>
         )
     })

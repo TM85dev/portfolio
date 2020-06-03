@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSpring, useSprings, animated, config } from 'react-spring'
+import { useSpring, useSprings, animated } from 'react-spring'
 
 function Button(props) {
     const leftArrows = ["<", "<", "<"]

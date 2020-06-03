@@ -39,6 +39,11 @@ function Project(props) {
                             onMouseOver={() => setToggle(true)}
                             onMouseLeave={() => setToggle(false)}
             >
+            <div className="mobile-skills">
+                {props.project.tech.map((tech, index)=> (
+                    <div>{tech} <br/></div>
+                ))}
+            </div>
             <animated.button 
                 style={button[0]} 
                 onMouseOver={() => hoverHandler(0)}

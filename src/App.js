@@ -5,6 +5,7 @@ import Loading from './components/Loading'
 import HomePage from './components/Home/Index'
 import Skills from './components/Skills/Index'
 import Projects from './components/Projects/Index'
+import AboutMe from './components/AboutMe'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/projects">
             {loading ? "" : <Projects />}
+          </Route>
+          <Route exact path="/about-me">
+            {loading ? "" : <AboutMe />}
           </Route>
         </Switch>
       </Router>

@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useSpring, useSprings, animated, config } from 'react-spring'
 import LinkItem from './LinkItem'
 import logo from '../logo.png'
-import { BrowserRouter as Router } from 'react-router-dom'
 
 function MainMenu() {
     const data = [
