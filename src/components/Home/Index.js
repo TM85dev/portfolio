@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useSpring, animated } from 'react-spring'
 import logo from "../../logo.png"
 import Header from './Header'
 import Paragraph from './Paragraph'
 import Button from './Button'
+import { LangContext } from '../../store'
 
 function HomePage() {
+    const [toggleLang] = useContext(LangContext)
     const [show] = useSpring( () => ({
         from: {opacity: 0},
         to: {opacity: 1}
@@ -35,10 +37,10 @@ function HomePage() {
                 {showbuttons && 
                 <>
                     <NavLink exact to="/about-me">
-                        <Button text="About Me" delay={1} />
+                        <Button text={toggleLang ? "O Mnie" : "About Me"} delay={1} />
                     </NavLink>
                     <NavLink exact to="/contact">
-                        <Button text="Contact" delay={2} />
+                        <Button text={toggleLang ? "Kontakt" : "Contact"} delay={2} />
                     </NavLink>
                 </>}
             </div>

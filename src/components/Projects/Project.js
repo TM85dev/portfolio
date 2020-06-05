@@ -41,7 +41,7 @@ function Project(props) {
             >
             <div className="mobile-skills">
                 {props.project.tech.map((tech, index)=> (
-                    <div>{tech} <br/></div>
+                    <div key={index}>{tech} <br/></div>
                 ))}
             </div>
             <animated.button 

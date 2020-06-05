@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSpring, animated } from 'react-spring'
 
 const Info = (props) => {
-    const [showHide, setShowHide] = useSpring(() => ({
+    const [showHide] = useSpring(() => ({
         from: {opacity: 0},
         to: {opacity: 1}
     }))
@@ -10,7 +10,7 @@ const Info = (props) => {
         <animated.div style={showHide}>
             <h3>{props.project.name}</h3>
             <ul>
-                In this project I used :
+                Used in this project:
                 {props.project.tech.map((item, index) => (
                     <li key={index}>{item.toUpperCase()}</li>
                 ))}

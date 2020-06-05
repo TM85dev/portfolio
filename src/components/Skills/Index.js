@@ -26,7 +26,7 @@ function Skills() {
         {name: "wordpress", icon: require('../../icons/wordpress.png')},
     ]
     const [h1Status, seth1Status] = useState(false)
-    const [showTitle, setTitle] = useSpring(() => ({
+    const [showTitle] = useSpring(() => ({
         from: {width: "calc(0px + 0vw)"},
         width: "calc(260px + 10vw)", config: config.wobbly
     }))
@@ -56,7 +56,7 @@ function Skills() {
         setTimeout(() => {
             seth1Status(true)
         }, 1000)
-    })
+    }, [])
     return(
         <main>
             <animated.div style={showTitle} className="skills">

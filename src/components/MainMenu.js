@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useSpring, useSprings, animated, config } from 'react-spring'
 import LinkItem from './LinkItem'
 import logo from '../logo.png'
+import { LangContext } from '../store'
 
 function MainMenu() {
+    const [toggleLang, setToggleLang] = useContext(LangContext)
     const data = [
-        {id:0, name: "Home", icon: "flaticon-home", route: "/"},
-        {id:1, name: "Skills", icon: "flaticon-wrench", route: "/skills"},
-        {id:2, name: "Projects", icon: "flaticon-monitor", route: "/projects"},
-        {id:3, name: "About_Me", icon: "flaticon-person", route: "/about-me"},
-        {id:4, name: "Contact", icon: "flaticon-contact", route: "contact"}
+        {id:0, name: toggleLang ? "Główna" : "Home", icon: "flaticon-home", route: "/"},
+        {id:1, name: toggleLang ? "Skille" : "Skills", icon: "flaticon-wrench", route: "/skills"},
+        {id:2, name: toggleLang ? "Projekty" : "Projects", icon: "flaticon-monitor", route: "/projects"},
+        {id:3, name: toggleLang ? "O_Mnie" : "About_Me", icon: "flaticon-person", route: "/about-me"},
+        {id:4, name: toggleLang ? "Kontakt" : "Contact", icon: "flaticon-contact", route: "/contact"},
+        {id:5, name: "Github", icon: "flaticon-github", route: "https://github.com/TM85dev"},
+        {id:6, name: "LinkedIn", icon: "flaticon-linkedin", route: "/soon"}
     ]
 
     const [linkItemAnim, setLinkItemAnim] = useSprings(data.length, index => ({
@@ -21,6 +25,23 @@ function MainMenu() {
         to: {width: "80px"},
         config: config.wobbly
     }))
+    const [plAnim, setPLAnim] = useSpring(() => ({
+        backgroundColor: "lightgray", color: "black"
+    }))
+    const [engAnim, setENGAnim] = useSpring(() => ({
+        backgroundColor: "black", color: "lightgray"
+    }))
+    const clickHandler = () => {
+        setToggleLang(!toggleLang)
+        setPLAnim(() => ({
+            backgroundColor: toggleLang ? "black" : "lightgray", 
+            color: toggleLang ? "lightgray" : "black"
+        }))
+        setENGAnim(() => ({
+            backgroundColor: !toggleLang ? "black" : "lightgray", 
+            color: !toggleLang ? "lightgray" : "black"
+        }))
+    }
 
     const list = data.map(item => {
         return(
@@ -29,6 +50,7 @@ function MainMenu() {
                     name={item.name.toUpperCase()} 
                     icon={item.icon}
                     route={item.route}
+                    id={item.id}
                 />
             </animated.li>
         )
@@ -50,6 +72,12 @@ function MainMenu() {
                     <img src={logo} alt="text" />
                 </li>
                 {list}
+                <li>
+                    <button onClick={clickHandler}>
+                        <animated.span style={plAnim}>PL</animated.span>
+                        <animated.span style={engAnim}>ENG</animated.span>
+                    </button>
+                </li>
             </ul>
         </animated.nav>
     )

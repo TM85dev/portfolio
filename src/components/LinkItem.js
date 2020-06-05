@@ -42,20 +42,25 @@ function LinkItem(props) {
             reset: true
         }))
     }
-    const clickHandler = () => {
-
-    }
     return(
         <div>
             <animated.span style={iconAnim} >
-                <NavLink exact to={props.route} activeClassName="selected">
+                {props.id < 5 ?
+                    <NavLink exact to={props.route} activeClassName="selected">
                     <span 
                         className={props.icon} 
                         onMouseOver={hoverHandler} 
-                        onMouseLeave={unhoverHandler}
-                        onClick={clickHandler}>
+                        onMouseLeave={unhoverHandler}>
                     </span>
-                </NavLink>
+                </NavLink> :
+                    <a href={props.route} target="_blank" rel="noopener noreferrer">
+                        <span 
+                        className={props.icon} 
+                        onMouseOver={hoverHandler} 
+                        onMouseLeave={unhoverHandler}>
+                        </span>
+                    </a>
+                }
             </animated.span>
             <span>{letterList}</span>
         </div>

@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { useSprings, useTransition, animated, config } from 'react-spring'
+import React, { useEffect, useState, useContext } from 'react'
+import { useSprings, animated, config } from 'react-spring'
+import { LangContext } from '../../store'
 
 function Header() {
-    const data = "HI, I'M TOM, WEB DEVELOPER."
+    const [toggleLang] = useContext(LangContext)
+    const [preventClick, setPreventClick] = useState(true)
+    const data = toggleLang ? "CZEŚĆ, JESTEM TOMASZ, WEB DEVELOPER." : "HI, MY NAME IS TOM, I'M WEB DEVELOPER."
+    const [load1stPart, setLoad1stPart] = useState(false)
     const [load2ndPart, setLoad2ndPart] = useState(false)
 
     const [headerAnim, setHeaderAnim] = useSprings(data.length, index => ({
@@ -34,7 +38,7 @@ function Header() {
                 {transform: "translate(0px, 0px) scale3d(0.95, 1.05, 1)"}, 
                 {transform: "translate(0px, 0px) scale3d(1.05, 0.95, 1)"},
                 {transform: "translate(0px, 0px) scale3d(1, 1, 1)"}
-            ] : setTimeout({transform: "translate(0px, 0px) scale3d(1, 1, 1)", color: "white"}, 1600),
+            ] : null,
             config: {duration: 160}
         }))
     }
@@ -48,37 +52,32 @@ function Header() {
                 {transform: "translate(0px, 0px) scale3d(0.95, 1.05, 1)"}, 
                 {transform: "translate(0px, 0px) scale3d(1.05, 0.95, 1)"},
                 {transform: "translate(0px, 0px) scale3d(1, 1, 1)"}
-            ] : setTimeout({transform: "translate(0px, 0px) scale3d(1, 1, 1)"},1600)
+            ] : null
         }))
     }
 
-
-    // const [toggle, set] = useState(false)
-    // const transition = useTransition(toggle, null, {
-    //     from: {position: 'absolute', opacity: 0},
-    //     enter: {opacity: 1},
-    //     leave: {opacity: 0},
-    //     duration: 600
-    // })
-    // const end = transition.map(({item, key, props}) => 
-    // item && <animated.span key={key} style={props}>|</animated.span>)
-
     useEffect(() => {
-        // setTimeout(() => {
-        //     setInterval(() => {
-        //         set(state => (!state))
-        //     }, 600)
-        // },3000)
+        setLoad1stPart(false)
+        setLoad2ndPart(false)
+        setPreventClick(true)
+        setTimeout(() => {
+            setLoad1stPart(true)
+        }, 600)
         setTimeout(() => {
             setLoad2ndPart(true)
-        }, 1000)
-    }, [])
+        }, 1200)
+        setTimeout(() => {
+            setPreventClick(false)
+        }, 3000)
+    }, [toggleLang])
     return(
         <h1>
-            {header.slice(0,12)}
-            {/* {end} */}
+            {toggleLang ? header.slice(0, 6) : header.slice(0, 3)}
             <br/>
-            {load2ndPart ? header.slice(12) : <span></span>}
+            {load1stPart ? toggleLang ? header.slice(6, 20) : header.slice(3,19) : <span></span>}
+            <br/>
+            {load2ndPart ?toggleLang ? header.slice(21) : header.slice(19) : <span></span>}
+            {preventClick ? <i></i> : ""}
         </h1>
     )
 }

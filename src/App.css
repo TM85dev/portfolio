@@ -1,6 +1,6 @@
 @font-face {
   font-family: Arkitech;
-  src: url("./fonts/Arkitech Medium.ttf");
+  src: url("./fonts/Arkitech Medium.ttf") format("ttf");
 }
 
 .app {
@@ -50,7 +50,7 @@ nav ul {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  height: 400px;
+  height: 100vh;
   -webkit-padding-start: 0px;
           padding-inline-start: 0px;
   -webkit-margin-before: auto;
@@ -73,6 +73,55 @@ nav ul li:first-of-type {
 nav ul li:first-of-type img {
   margin-top: 20px;
   width: calc(40px + 2vw);
+}
+
+nav ul li:nth-of-type(7) {
+  position: relative;
+  margin-top: calc(0px + 20vh);
+  bottom: 40px;
+}
+
+nav ul li:nth-of-type(8) {
+  position: relative;
+  bottom: 40px;
+}
+
+nav ul li:nth-of-type(7) a,
+nav ul li:nth-of-type(8) a {
+  color: rgba(211, 211, 211, 0.7);
+  font-size: 0.1em;
+}
+
+nav ul li:last-of-type {
+  position: relative;
+  bottom: 40px;
+  font-size: 10px;
+}
+
+nav ul li:last-of-type button {
+  background-color: rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0 0 1px 0 gray;
+          box-shadow: 0 0 1px 0 gray;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+nav ul li:last-of-type span {
+  padding: 0 4px;
+}
+
+nav ul li:last-of-type span:first-of-type {
+  background-color: lightgray;
+  color: black;
+  border-radius: 4px;
+}
+
+nav ul li:last-of-type span:last-of-type {
+  background-color: black;
+  color: lightgray;
+  border-radius: 4px;
 }
 
 nav ul li > div > span a {
@@ -243,9 +292,10 @@ main img {
 }
 
 main h1 {
+  position: relative;
   color: #fcfcfc;
   text-align: center;
-  font-size: calc(16px + 1.6vw);
+  font-size: calc(8px + 2vw);
   font-weight: bolder;
   letter-spacing: 1px;
   line-height: calc(30px + 1.6vw);
@@ -260,9 +310,19 @@ main h1 span {
   display: inline-block;
 }
 
+main h1 i {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
 main div p {
   color: gray;
-  font-size: calc(3px + 1vw);
+  font-size: calc(10px + 0.3vw);
   text-transform: uppercase;
   padding-top: 0px;
   -webkit-margin-before: 0em;
@@ -298,8 +358,8 @@ main .buttons {
             align-items: center;
     margin-top: 50px;
   }
-  main .buttons > div {
-    margin-bottom: 50px;
+  main .buttons > a {
+    margin-bottom: 60px;
   }
 }
 
@@ -354,7 +414,8 @@ main button span:nth-of-type(4) {
 
 main .skills,
 main .projects,
-main .about-me {
+main .about-me,
+main .contact {
   position: relative;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -369,7 +430,8 @@ main .about-me {
 
 main .skills h1,
 main .projects h1,
-main .about-me h1 {
+main .about-me h1,
+main .contact h1 {
   margin: 0 0 calc(4px + 1vw) 0;
   font-size: calc(16px + 1vw);
   text-transform: uppercase;
@@ -651,6 +713,7 @@ main .info-about-me strong {
 main .info-about-me::after {
   content: "";
   background-image: url("./pics/about-me.jpg");
+  background-position-x: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -668,5 +731,194 @@ main .info-about-me div > span:first-of-type {
 
 main .info-about-me hr {
   margin: 20px auto;
+}
+
+main .contact-form {
+  width: 80%;
+  margin: 60px 2%;
+  padding: 20px 4% 40px 4%;
+  background-color: #141414;
+  -webkit-box-shadow: 0 0 16px 0 #6b6b6b;
+          box-shadow: 0 0 16px 0 #6b6b6b;
+  color: #d8d8d8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: calc(8px + 0.4vw);
+  line-height: calc(18px + 0.4vw);
+}
+
+main .contact-form form {
+  margin-left: 2%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .contact-form form h3 {
+  font-size: 12px;
+  text-align: center;
+}
+
+main .contact-form form div {
+  margin: 20px 0;
+}
+
+main .contact-form form div label span {
+  display: block;
+  margin-bottom: 2px;
+}
+
+main .contact-form form div label span:last-of-type {
+  position: absolute;
+  color: red;
+  font-size: 12px;
+}
+
+main .contact-form form div label i {
+  color: #e9464c;
+}
+
+main .contact-form form div label input {
+  background-color: black;
+  -webkit-box-shadow: 0 0 4px 0 lightgray;
+          box-shadow: 0 0 4px 0 lightgray;
+  color: lightgray;
+  border-radius: 4px;
+  width: 50%;
+  height: 30px;
+  padding: 3px 10px;
+  outline: none;
+}
+
+@media screen and (max-width: 700px) {
+  main .contact-form form div label input {
+    width: 90%;
+  }
+}
+
+main .contact-form form div label textarea {
+  background-color: black;
+  -webkit-box-shadow: 0 0 4px 0 lightgray;
+          box-shadow: 0 0 4px 0 lightgray;
+  color: lightgray;
+  border-radius: 4px;
+  width: 70%;
+  height: 120px;
+  padding: 10px;
+  outline: none;
+}
+
+@media screen and (max-width: 700px) {
+  main .contact-form form div label textarea {
+    width: 95%;
+  }
+}
+
+main .contact-form form > span {
+  margin-top: 20px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  color: lightgreen;
+}
+
+@media screen and (max-width: 1100px) {
+  main .contact-form form > span {
+    position: relative;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    top: 80px;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  main .contact-form form > span {
+    width: 80%;
+  }
+}
+
+main .contact-form form button {
+  padding-top: 12px;
+  color: #e9464c;
+  -webkit-box-shadow: 0 0 4px 0 lightgray;
+          box-shadow: 0 0 4px 0 lightgray;
+  width: 240px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  margin-right: 30%;
+  -webkit-transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.4s ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 1100px) {
+  main .contact-form form button {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-top: 90px;
+  }
+}
+
+main .contact-form form button:hover {
+  -webkit-animation: hovered 1 0.4s ease-out;
+          animation: hovered 1 0.4s ease-out;
+  background-color: white;
+}
+
+@media screen and (max-width: 700px) {
+  main .contact-form form button {
+    margin-right: 5%;
+  }
+}
+
+@-webkit-keyframes hovered {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes hovered {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: white;
+  }
+}
+
+#g-recaptcha {
+  margin: -60px 0 0 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+@media screen and (max-width: 1100px) {
+  #g-recaptcha {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-left: -30%;
+    position: relative;
+    bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #g-recaptcha {
+    width: 68%;
+  }
 }
 /*# sourceMappingURL=App.css.map */

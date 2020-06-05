@@ -6,11 +6,14 @@ import HomePage from './components/Home/Index'
 import Skills from './components/Skills/Index'
 import Projects from './components/Projects/Index'
 import AboutMe from './components/AboutMe'
+import Contact from './components/Contact'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { LangContext } from './store';
+
 
 function App() {
+  const [toggleLang, setToggleLang] = useState(true)
   const [loading, setLoading] = useState(true)
-
   const site = <header>
                   <MainMenu />
                </header>
@@ -21,6 +24,7 @@ function App() {
   }, [])
   return (
     <div className="app">
+      <LangContext.Provider value={[toggleLang, setToggleLang]} >
       <Router>
         {loading ? <Loading /> : site}
         <Switch>
@@ -36,8 +40,12 @@ function App() {
           <Route exact path="/about-me">
             {loading ? "" : <AboutMe />}
           </Route>
+          <Route exact path="/contact">
+            {loading ? "" : <Contact />}
+          </Route>
         </Switch>
       </Router>
+      </LangContext.Provider>
     </div>
   );
 }
