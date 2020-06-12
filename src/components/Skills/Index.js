@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import Skill from './Skill'
+import { LangContext }  from '../../store'
 
 function Skills() {
+    const [toggleLang] = useContext(LangContext)
     const data = [
         {name: "HTML5", icon: require('../../icons/html.png')},
         {name: "CSS", icon: require('../../icons/css.png')},
@@ -12,6 +14,7 @@ function Skills() {
         {name: "Vue", icon: require('../../icons/vue.png')},
         {name: "Git", icon: require('../../icons/git.png')},
         {name: "Github", icon: require('../../icons/github.png')},
+        {name: "Redux", icon: require('../../icons/redux.png')},
         {name: "NPM", icon: require('../../icons/npm.png')},
         {name: "Corel", icon: require('../../icons/corel.png')},
         {name: "Linux", icon: require('../../icons/linux.png')},
@@ -21,8 +24,8 @@ function Skills() {
         {name: "mongodb\n(basics)", icon: require('../../icons/mongodb.png')},
         {name: "Animejs", icon: require('../../icons/animejs.png')},
         {name: "PHP\n(basics)", icon: require('../../icons/php.png')},
-        {name: "Laravel", icon: require('../../icons/laravel.png')},
-        {name: "Mysql\n(basics)", icon: require('../../icons/mysql.png')},
+        {name: "Laravel\n(basics)", icon: require('../../icons/laravel.png')},
+        {name: "Mariadb\n(basics)", icon: require('../../icons/mariadb.png')},
         {name: "wordpress", icon: require('../../icons/wordpress.png')},
     ]
     const [h1Status, seth1Status] = useState(false)
@@ -60,10 +63,10 @@ function Skills() {
     return(
         <main>
             <animated.div style={showTitle} className="skills">
-                {h1Status ? <animated.h1 style={showh1Anim}>My Skills</animated.h1> : <h1>&nbsp;</h1>}
+                {h1Status ? <animated.h1 style={showh1Anim}>{toggleLang ? "Moje Skille" : "My Skills"}</animated.h1> : <h1>&nbsp;</h1>}
             </animated.div>
             <animated.h2 style={{transform: t1.interpolate(t1 => `translateY(${t1}px)`),
-                                opacity: o1.interpolate(o1 => o1)}}>Main Stack</animated.h2>
+                                opacity: o1.interpolate(o1 => o1)}}>{toggleLang ? "Główne" : "Main Stack"}</animated.h2>
             <animated.hr style={{transform: t1.interpolate(t1 => `translateX(${t1}px)`),
                                 opacity: o1.interpolate(o1 => o1)}}/>
             <div className="skills-list">
@@ -73,7 +76,7 @@ function Skills() {
                 {list.slice(4, 8)}
             </div>
             <animated.h2 style={{transform: t2.interpolate(t2 => `translateY(${t2}px)`),
-                                opacity: o2.interpolate(o2 => o2)}}>Other Skills</animated.h2>
+                                opacity: o2.interpolate(o2 => o2)}}>{toggleLang ? "Pozostałe" : "Other Skills"}</animated.h2>
             <animated.hr style={{transform: t2.interpolate(t2 => `translateX(${t2}px)`),
                                 opacity: o2.interpolate(o2 => o2)}} />
             <div className="skills-list other-skills">

@@ -45,6 +45,9 @@ app.post("/mail", (req, res) => {
     })
 })
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('build'))
+}
 
 app.listen(PORT, 
     // () => console.log(`listen on http://localhost:${PORT}`)

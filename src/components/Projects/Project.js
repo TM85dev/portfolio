@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import  { useSpring, useSprings, animated } from 'react-spring'
+import { LangContext } from '../../store'
 
 function Project(props) {
+    const [toggleLang] = useContext(LangContext)
     const [show] = useSpring(() => ({
         from: {opacity: 0},
         to: {opacity: 1},
@@ -49,12 +51,14 @@ function Project(props) {
                 onMouseOver={() => hoverHandler(0)}
                 onMouseLeave={unhoverHandler}
                 onClick={clickHandler}
-            >More</animated.button>
-            <animated.button 
-                style={button[1]} 
-                onMouseOver={() => hoverHandler(1)}
-                onMouseLeave={unhoverHandler}
-            >Life</animated.button>
+            >{toggleLang ? "Więcej" : "More"}</animated.button>
+            <a href={props.project.site} target="_blank" rel="noopener noreferrer">    
+                <animated.button 
+                    style={button[1]} 
+                    onMouseOver={() => hoverHandler(1)}
+                    onMouseLeave={unhoverHandler}
+                >{toggleLang ? "Uruchom" : "Life"}</animated.button>
+            </a>
             </animated.span>
             <animated.img 
                 style={{transform: s.interpolate(s => `scale(${s})`)}} 

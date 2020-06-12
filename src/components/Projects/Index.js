@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Project from './Project'
 import Info from './info'
 import { useSpring, animated, config } from 'react-spring'
+import { LangContext } from "../../store"
 
 function Projects() {
+    const [toggleLang] = useContext(LangContext)
     const data = [
-        {id: 0, name: "Agency Site", link: require("../../pics/agency_site.jpg"), tech: ["Vue", "Vue Router", "Vue-Animejs", "Vue-Lazyload"]},
-        {id: 1, name: "Dogs Site", link: require("../../pics/dogs_site.jpg"), tech: ["React", "React-Router", "React-Spring"]},
-        {id: 2, name: "Pairs Game", link: require("../../pics/pairs_game.jpg"), tech: ["JQuery", "Bootstrap"]},
-        {id: 3, name: "Rock-Paper-Sicisors", link: require("../../pics/rock_paper_sicisors.jpg"), tech: ["JQuery", "JQuery-Transit", "Bootstrap"]},
-        {id: 4, name: "Todos Project", link: require("../../pics/todos.jpg"), tech: ["Vue","JQuery", "Bootstrap", "Laravel", "Axios"]},
+        {id: 0, name: "Agency Site", link: require("../../pics/agency_site.jpg"), tech: ["Vue", "Vue Router", "Vue-Animejs", "Vue-Lazyload"], site: "/agency-site"},
+        {id: 1, name: "Dogs Site", link: require("../../pics/dogs_site.jpg"), tech: ["React", "React-Router", "React-Spring"], site: "/tresura"},
+        {id: 2, name: "Pairs Game", link: require("../../pics/pairs_game.jpg"), tech: ["JQuery", "Bootstrap"], site: "/pairs"},
+        {id: 3, name: "Rock-Paper-Sicisors", link: require("../../pics/rock_paper_sicisors.jpg"), tech: ["JQuery", "JQuery-Transit", "Bootstrap"], site: "/rps"},
+        {id: 4, name: "Portfolio Project", link: require("../../pics/portfolio.jpg"), tech: ["React","React-Router", "React-Spring", "Express", "Axios"], site: "/"},
     ]
     const [isVisible, setVisible] = useState([false, false, false, false, false, true])
     const [showTitle] = useSpring(() => ({
@@ -34,14 +36,16 @@ function Projects() {
         return(
             <span key={index}>
             {isVisible[index] ? <Info visible={isVisible[index]} project={item} /> :
-            isVisible[5] ? <animated.div style={defaultInfo} className="default-info"><h3>Select one project</h3></animated.div> : ""}
+            isVisible[5] ? <animated.div style={defaultInfo} className="default-info">
+                <h3>{toggleLang ? "Wybierz jeden z projektów" : "Select one project"}</h3>
+            </animated.div> : ""}
             </span>
         )
     })
     return(
         <main>
             <animated.div style={showTitle} className="projects">
-                <animated.h1 style={showh1Anim}>Projects</animated.h1>
+                <animated.h1 style={showh1Anim}>{toggleLang ? "Projekty" : "Projects"}</animated.h1>
             </animated.div>
             <div className="projects-list">
                 <div>

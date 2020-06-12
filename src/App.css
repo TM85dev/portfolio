@@ -603,6 +603,8 @@ main .projects-list > div:first-of-type > div span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -620,7 +622,8 @@ main .projects-list > div:first-of-type > div span button {
   -webkit-box-shadow: 0 0 2px 1px;
           box-shadow: 0 0 2px 1px;
   padding: 10px 15px;
-  font-size: 12px;
+  font-size: 10px;
+  margin: 0 10px;
 }
 
 main .projects-list > div:first-of-type > div img {
@@ -645,6 +648,10 @@ main .projects-list > div:last-of-type {
 main .projects-list > div:last-of-type .default-info {
   -webkit-box-shadow: 0 0 16px 0 rgba(107, 107, 107, 0.2);
           box-shadow: 0 0 16px 0 rgba(107, 107, 107, 0.2);
+}
+
+main .projects-list > div:last-of-type .default-info h3 {
+  font-size: calc(10px + 0.4vw);
 }
 
 main .projects-list > div:last-of-type div {
