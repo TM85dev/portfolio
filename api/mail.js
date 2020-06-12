@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(cors())
 
-app.get("/", (req, res) => {
-    res.send("Welcome to back-end ;)")
-})
+// app.get("/", (req, res) => {
+//     res.send("Welcome to back-end ;)")
+// })
 
 app.post("/mail", (req, res) => {
     const data = req.body
@@ -46,7 +46,7 @@ app.post("/mail", (req, res) => {
 })
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('build'))
+    app.use("/", express.static('../build'))
 }
 
 app.listen(PORT, 
