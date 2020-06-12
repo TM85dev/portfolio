@@ -1,6 +1,6 @@
 @font-face {
   font-family: Arkitech;
-  src: url("./fonts/Arkitech Medium.ttf") format("ttf");
+  src: url("./fonts/Arkitech Medium.ttf") format("ttf"), url("./fonts/Arkitech Light.ttf") format("ttf"), url("./fonts/Arkitech Light.woff") format("woff");
 }
 
 .app {
