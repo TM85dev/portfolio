@@ -68,7 +68,7 @@ function Contact() {
                     color: "lightgreen"
                 }))
                 axios.post(
-                    "http://localhost:8080/mail", 
+                    "https://portfolio-tm-dev-85-pl.herokuapp.com/mail", 
                     {name: name, email: email, message: message}
                 ).then(response => {
                     setMessageSend(true)
