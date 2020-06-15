@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
 import Input from './input'
+import Email from './email'
 import { useSpring, animated, config } from 'react-spring'
 import Recaptcha from 'react-recaptcha'
 import axios from 'axios'
@@ -92,6 +93,10 @@ function Contact() {
                 <animated.form style={showForm} onSubmit={submitHandler}>
                     <h3>
                         {toggleLang ? "Proszę wypełnij formularz, aby przesłać mi wiadomość." : "Please fill out this form to send me a message."}
+                    </h3>
+                    <h3>
+                        {toggleLang ? "Lub napisz do mnie na adres: " : "Or send me an email at: "}
+                        <Email />
                     </h3>
                     <Input 
                         inputValue={name} 

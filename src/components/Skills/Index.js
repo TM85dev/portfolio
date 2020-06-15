@@ -17,7 +17,7 @@ function Skills() {
         {name: "Redux", icon: require('../../icons/redux.png')},
         {name: "NPM", icon: require('../../icons/npm.png')},
         {name: "Corel", icon: require('../../icons/corel.png')},
-        {name: "Linux", icon: require('../../icons/linux.png')},
+        {name: "Linux\n(basics)", icon: require('../../icons/linux.png')},
         {name: "JQuery", icon: require('../../icons/jquery.png')},
         {name: "Bootstrap", icon: require('../../icons/bootstrap.png')},
         {name: "express\n(basics)", icon: require('../../icons/express.png')},
@@ -70,10 +70,7 @@ function Skills() {
             <animated.hr style={{transform: t1.interpolate(t1 => `translateX(${t1}px)`),
                                 opacity: o1.interpolate(o1 => o1)}}/>
             <div className="skills-list">
-                {list.slice(0, 4)}
-            </div>
-            <div style={{marginTop: "calc(-10px + 6vw)"}} className="skills-list">
-                {list.slice(4, 8)}
+                {list.slice(0, 8)}
             </div>
             <animated.h2 style={{transform: t2.interpolate(t2 => `translateY(${t2}px)`),
                                 opacity: o2.interpolate(o2 => o2)}}>{toggleLang ? "Pozostałe" : "Other Skills"}</animated.h2>

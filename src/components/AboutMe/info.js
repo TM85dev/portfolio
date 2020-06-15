@@ -5,7 +5,7 @@ function Info() {
     const [toggleLang] = useContext(LangContext)
     const data = {
         line1: toggleLang ? "Cześć, jestem Tomasz Mączka." : "Hello, I'm Tomasz Mączka.",
-        line2: toggleLang ? "Przez kilka lat pracowałem dla agencji reklamowej. Zajmowałem się:" : "I worked for an advertising agency for several years. I dealt with:",
+        line2: toggleLang ? "Przez kilka lat pracowałem dla agencji reklamowych. Zajmowałem się:" : "I worked for an advertising agency for several years. I dealt with:",
         liA1: toggleLang ? "tworzeniem projektów graficznych zarówno na potrzeby komputerów jak i przygotowaniem do druku," : "creating graphic design for both computers and printing needs,",
         liA2: toggleLang ? "projektowanie plakatów, wizytówek," : "esigning posters, business cards,",
         liA3: toggleLang ? "drukowaniem," : "print,",

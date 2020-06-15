@@ -446,11 +446,11 @@ main h2 {
 }
 
 main h2:last-of-type {
-  margin-top: 50px;
+  margin-top: 80px;
   -ms-flex-item-align: start;
       align-self: flex-start;
   padding-left: 1%;
-  font-size: calc(10px + 0.4vw);
+  font-size: calc(10px + 0.45vw);
 }
 
 main hr {
@@ -474,7 +474,9 @@ main .skills-list {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: calc(50% + 20vw);
+  width: 90%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   max-width: 100%;
 }
 
@@ -518,7 +520,7 @@ main div.line:nth-of-type(5) {
 main div.other-skills {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(99% - 1vw);
+  width: 95%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -769,6 +771,15 @@ main .contact-form form {
 main .contact-form form h3 {
   font-size: 12px;
   text-align: center;
+}
+
+main .contact-form form h3 a {
+  color: #e9464c;
+  text-decoration: none;
+}
+
+main .contact-form form h3 a span {
+  display: inline-block;
 }
 
 main .contact-form form div {

@@ -45,9 +45,13 @@ app.post("/mail", (req, res) => {
     })
 })
 
+
 if (process.env.NODE_ENV === 'production') {
     app.use("/", express.static('../build'))
 }
+app.get("*", (req, res) => {
+    res.redirect("/")
+})
 
 app.listen(PORT, 
     // () => console.log(`listen on http://localhost:${PORT}`)

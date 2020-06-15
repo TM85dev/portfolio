@@ -7,11 +7,11 @@ import { LangContext } from "../../store"
 function Projects() {
     const [toggleLang] = useContext(LangContext)
     const data = [
-        {id: 0, name: "Agency Site", link: require("../../pics/agency_site.jpg"), tech: ["Vue", "Vue Router", "Vue-Animejs", "Vue-Lazyload"], site: "/agency-site"},
-        {id: 1, name: "Dogs Site", link: require("../../pics/dogs_site.jpg"), tech: ["React", "React-Router", "React-Spring"], site: "/tresura"},
-        {id: 2, name: "Pairs Game", link: require("../../pics/pairs_game.jpg"), tech: ["JQuery", "Bootstrap"], site: "/pairs"},
-        {id: 3, name: "Rock-Paper-Sicisors", link: require("../../pics/rock_paper_sicisors.jpg"), tech: ["JQuery", "JQuery-Transit", "Bootstrap"], site: "/rps"},
-        {id: 4, name: "Portfolio Project", link: require("../../pics/portfolio.jpg"), tech: ["React","React-Router", "React-Spring", "Express", "Axios"], site: "/"},
+        {id: 0, name: "Agency Site", link: require("../../pics/agency_site.jpg"), tech: ["Vue", "Vue Router", "Vue-Animejs", "Vue-Lazyload"], site: "http://tm-dev.pl/agency-site"},
+        {id: 1, name: "Dogs Site", link: require("../../pics/dogs_site.jpg"), tech: ["React", "React-Router", "React-Spring"], site: "http://tm-dev.pl/tresura"},
+        {id: 2, name: "Pairs Game", link: require("../../pics/pairs_game.jpg"), tech: ["JQuery", "Bootstrap"], site: "http://tm-dev.pl/pairs"},
+        {id: 3, name: "Rock-Paper-Sicisors", link: require("../../pics/rock_paper_sicisors.jpg"), tech: ["JQuery", "JQuery-Transit", "Bootstrap"], site: "http://tm-dev.pl/rps"},
+        {id: 4, name: "Portfolio Project", link: require("../../pics/portfolio.jpg"), tech: ["React","React-Router", "React-Spring", "Express", "Axios"], site: "http://tm-dev.pl/"},
     ]
     const [isVisible, setVisible] = useState([false, false, false, false, false, true])
     const [showTitle] = useSpring(() => ({

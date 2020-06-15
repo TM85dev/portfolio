@@ -307,10 +307,10 @@ main {
         font-weight: lighter;
     }
     h2:last-of-type {
-        margin-top: 50px;
+        margin-top: 80px;
         align-self: flex-start;
         padding-left: 1%;
-        font-size: calc(10px + 0.4vw);
+        font-size: calc(10px + 0.45vw);
     }
     hr {
         border: 0 solid silver;
@@ -327,7 +327,8 @@ main {
     .skills-list {
         display: flex;
         justify-content: space-around;
-        width: calc(50% + 20vw);
+        width: 90%;
+        flex-wrap: wrap;
         max-width: 100%;
         &>div {
             width: 100px;
@@ -359,7 +360,7 @@ main {
     }
     div.other-skills {
         flex-wrap: wrap;
-        width: calc(99% - 1vw);
+        width: 95%;
         align-self: center;
         justify-content: space-evenly;
         margin-bottom: 100px;
@@ -543,6 +544,13 @@ main {
             h3 {
                 font-size: 12px;
                 text-align: center;
+                a {
+                    color: rgb(233, 70, 76);
+                    text-decoration: none;
+                    span {
+                        display: inline-block;
+                    }
+                }
             }
             div {
                 margin: 20px 0;
