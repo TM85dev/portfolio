@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 
 function LinkItem(props) {
     const [iconAnim, setIconAnim] = useSpring(() => ({
-        transform: "scale(1)"
+        transform: "scale(1, 1) translateX(0px)"
     }))
     const word = props.name.split("")
     const [letterAnim, setLetterAnim] = useSprings(word.length, index => ({
-        transform: "translateX(20px)", 
+        transform: "translateX(0px)", 
         opacity: 0, 
         config: {duration: 120}
     }))
@@ -23,7 +23,7 @@ function LinkItem(props) {
 
     const hoverHandler = (e) => {
             setIconAnim(() => ({
-                transform: "scale(1.4)"
+                transform: "scale(1.4, 1.4) translateX(6px)"
             }))
         setLetterAnim(index => ({
             from: {transform: "translateX(20px)", opacity: 0},
@@ -33,7 +33,7 @@ function LinkItem(props) {
     }
     const unhoverHandler = (e) => {
             setIconAnim(() => ({
-                transform: "scale(1)", color: "white"
+                transform: "scale(1, 1) translate(0px)"
             }))
         setLetterAnim(index => ({
             from: {transform: "translateX(0px)", opacity: 1},

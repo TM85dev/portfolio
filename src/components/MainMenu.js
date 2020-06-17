@@ -1,11 +1,24 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import { useSpring, useSprings, animated, config } from 'react-spring'
 import LinkItem from './LinkItem'
 import logo from '../logo.png'
 import { LangContext } from '../store'
 
+function useResize() {
+    const [windowWidth, setWidth] = useState(window.innerWidth)
+    const handleResize = () => setWidth(window.innerWidth)
+    useEffect(() => {
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+    return windowWidth
+}
+
 function MainMenu() {
+    const resized = useResize()
+    const [showMenu, setShowMenu] = useState(window.innerWidth<500 ? false : true)
     const [toggleLang, setToggleLang] = useContext(LangContext)
+    const showHideData = showMenu ? 'hide' : 'show'
     const data = [
         {id:0, name: toggleLang ? "Główna" : "Home", icon: "flaticon-home", route: "/"},
         {id:1, name: toggleLang ? "Skille" : "Skills", icon: "flaticon-wrench", route: "/skills"},
@@ -18,11 +31,15 @@ function MainMenu() {
 
     const [linkItemAnim, setLinkItemAnim] = useSprings(data.length, index => ({
         transform: "translateX(-50px)", opacity: 0,
+        display: 'list-item',
         config: config.wobbly
     }))
-    const [bgMenu] = useSpring(() => ({
-        from: {width: "0px"},
-        to: {width: "80px"},
+    const [logoAnim, setLogoAnim] = useSpring(() => ({
+        opacity: 1, display: "list-item"
+    }))
+    const [bgMenu, setBgMenu] = useSpring(() => ({
+        from: {width: "20px"},
+        to: {width: "100px"},
         config: config.wobbly
     }))
     const [plAnim, setPLAnim] = useSpring(() => ({
@@ -30,6 +47,9 @@ function MainMenu() {
     }))
     const [engAnim, setENGAnim] = useSpring(() => ({
         backgroundColor: "black", color: "lightgray"
+    }))
+    const [showHideAnim, setShowHideAnim] = useSpring(() => ({
+        color: "lightgray"
     }))
     const clickHandler = () => {
         setToggleLang(!toggleLang)
@@ -41,6 +61,10 @@ function MainMenu() {
             backgroundColor: !toggleLang ? "black" : "lightgray", 
             color: !toggleLang ? "lightgray" : "black"
         }))
+    }
+    const showHideHandler = () => {
+        setShowMenu(!showMenu)
+
     }
 
     const list = data.map(item => {
@@ -55,6 +79,7 @@ function MainMenu() {
             </animated.li>
         )
     })
+    const toggleMenu = showHideData.split("").map((word, index) => (<span key={index}>{word}</span>))
 
     useEffect(() => {
         setTimeout(() => {
@@ -63,15 +88,33 @@ function MainMenu() {
                 delay: 300 + (200 * index) 
             }))
         }, 600)
+        if(resized<500) {
+            setBgMenu(() => ({width: showMenu ? "100px" : '20px'}))
+            setLinkItemAnim(() => ({display: showMenu ? "list-item" : 'none'}))
+            setLogoAnim(() => ({display: showMenu ? "list-item" : "none"}))
+        }
+        else {
+            setBgMenu(() => ({width: showMenu ? '100px' : "20px"}))
+            setLinkItemAnim(() => ({display: showMenu ? 'list-item' : "none"}))
+            setLogoAnim(() => ({display: showMenu ? "list-item" : "none"}))
+        }
     })
     return(
         <animated.nav style={bgMenu}>
             <div className="menu-bg"></div>
             <ul>
-                <li>
-                    <img src={logo} alt="text" />
-                </li>
+                <animated.li style={logoAnim}>
+                    <img src={logo} alt="logo" />
+                </animated.li>
                 {list}
+                <animated.div 
+                    style={showHideAnim}
+                    className='toggle-menu' 
+                    onClick={showHideHandler}
+                    onMouseOver={() => setShowHideAnim(() => ({color: "red"}))}
+                    onMouseLeave={() => setShowHideAnim(() => ({color: "lightgray"}))}>
+                    {toggleMenu}
+                </animated.div>
                 <li>
                     <button onClick={clickHandler}>
                         <animated.span style={plAnim}>PL</animated.span>

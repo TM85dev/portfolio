@@ -69,7 +69,7 @@ function Header() {
         setTimeout(() => {
             setPreventClick(false)
         }, 3000)
-    }, [toggleLang])
+    }, [])
     return(
         <h1>
             {toggleLang ? header.slice(0, 6) : header.slice(0, 3)}

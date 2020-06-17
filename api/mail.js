@@ -5,7 +5,7 @@ const nodemailer = require("nodemailer")
 require("dotenv").config()
 
 const app = express()
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 4000
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
@@ -18,12 +18,13 @@ app.use(cors())
 
 app.post("/mail", (req, res) => {
     const data = req.body
-    const transport = nodemailer.createTransport({
-        // host: "smtp.gmail.com",
-        // port: 465,
-        service: process.env.SERVICE,
+    let transport = nodemailer.createTransport({
+        // service: 'gmail',
+        host: process.env.HOST,
+        port: process.env.MAIL_PORT,
+        secure: true,
         auth: {
-          user: process.env.USER,
+          user: 'tom@tm-dev.pl',
           pass: process.env.PASS
         }
       });
@@ -39,7 +40,7 @@ app.post("/mail", (req, res) => {
             console.log(err)
         } else {
             // console.log('Message send')
-            res.send(200)
+            res.sendStatus(200)
             transport.close()
         }
     })
@@ -54,5 +55,5 @@ app.get("*", (req, res) => {
 })
 
 app.listen(PORT, 
-    // () => console.log(`listen on http://localhost:${PORT}`)
+    () => console.log(`listen on http://localhost:${PORT}`)
 )
