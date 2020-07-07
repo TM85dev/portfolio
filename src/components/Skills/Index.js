@@ -2,32 +2,11 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import Skill from './Skill'
 import { LangContext }  from '../../store'
+import { skillsData } from '../../data'
 
 function Skills() {
     const [toggleLang] = useContext(LangContext)
-    const data = [
-        {name: "HTML5", icon: require('../../icons/html.png')},
-        {name: "CSS", icon: require('../../icons/css.png')},
-        {name: "SASS", icon: require('../../icons/scss.png')},
-        {name: "JS (ES6)", icon: require('../../icons/js.png')},
-        {name: "React", icon: require('../../icons/react.png')},
-        {name: "Vue", icon: require('../../icons/vue.png')},
-        {name: "Git", icon: require('../../icons/git.png')},
-        {name: "Github", icon: require('../../icons/github.png')},
-        {name: "Redux", icon: require('../../icons/redux.png')},
-        {name: "NPM", icon: require('../../icons/npm.png')},
-        {name: "Corel", icon: require('../../icons/corel.png')},
-        {name: "Linux\n(basics)", icon: require('../../icons/linux.png')},
-        {name: "JQuery", icon: require('../../icons/jquery.png')},
-        {name: "Bootstrap", icon: require('../../icons/bootstrap.png')},
-        {name: "express\n(basics)", icon: require('../../icons/express.png')},
-        {name: "mongodb\n(basics)", icon: require('../../icons/mongodb.png')},
-        {name: "Animejs", icon: require('../../icons/animejs.png')},
-        {name: "PHP\n(basics)", icon: require('../../icons/php.png')},
-        {name: "Laravel\n(basics)", icon: require('../../icons/laravel.png')},
-        {name: "Mariadb\n(basics)", icon: require('../../icons/mariadb.png')},
-        {name: "wordpress", icon: require('../../icons/wordpress.png')},
-    ]
+    const data = skillsData
     const [h1Status, seth1Status] = useState(false)
     const [showTitle] = useSpring(() => ({
         from: {width: "calc(0px + 0vw)"},

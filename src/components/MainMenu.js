@@ -3,6 +3,7 @@ import { useSpring, useSprings, animated, config } from 'react-spring'
 import LinkItem from './LinkItem'
 import logo from '../logo.png'
 import { LangContext } from '../store'
+import { menuDataPL, menuDataENG } from '../data'
 
 function useResize() {
     const [windowWidth, setWidth] = useState(window.innerWidth)
@@ -18,16 +19,8 @@ function MainMenu() {
     const resized = useResize()
     const [showMenu, setShowMenu] = useState(window.innerWidth<500 ? false : true)
     const [toggleLang, setToggleLang] = useContext(LangContext)
-    const showHideData = showMenu ? 'hide' : 'show'
-    const data = [
-        {id:0, name: toggleLang ? "Główna" : "Home", icon: "flaticon-home", route: "/"},
-        {id:1, name: toggleLang ? "Skille" : "Skills", icon: "flaticon-wrench", route: "/skills"},
-        {id:2, name: toggleLang ? "Projekty" : "Projects", icon: "flaticon-monitor", route: "/projects"},
-        {id:3, name: toggleLang ? "O_Mnie" : "About_Me", icon: "flaticon-person", route: "/about-me"},
-        {id:4, name: toggleLang ? "Kontakt" : "Contact", icon: "flaticon-contact", route: "/contact"},
-        {id:5, name: "Github", icon: "flaticon-github", route: "https://github.com/TM85dev"},
-        {id:6, name: "LinkedIn", icon: "flaticon-linkedin", route: "/soon"}
-    ]
+    const showHideData = toggleLang ? (showMenu ? 'ukryj' : 'pokaż') : (showMenu ? 'hide' : 'show')
+    const data = toggleLang ? menuDataPL : menuDataENG
 
     const [linkItemAnim, setLinkItemAnim] = useSprings(data.length, index => ({
         transform: "translateX(-50px)", opacity: 0,

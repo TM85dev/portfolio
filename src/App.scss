@@ -428,12 +428,13 @@ main {
             }
             &>div:first-of-type>div {
                 span {
-                    button:first-of-type {
+                    button {
                         display: none;
                     }
-                    button:last-of-type {
-                        align-self: flex-end;
-                        margin-bottom: 10px;
+                    a button {
+                        align-self: flex-start;
+                        margin-top: 80px;
+                        display: block;
                     }
                 }
             }

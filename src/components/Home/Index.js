@@ -15,7 +15,12 @@ function HomePage() {
     }))
     const [logoAnim] = useSpring(() => ({
         from: {opacity: 0, marginTop: "50px"},
-        to: [{opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.8}, {opacity: 0.3}, {opacity: 0.5}, {opacity: 0.7}, {opacity: 0.9}, {opacity: 1}], delay: 600, config: {duration: 20}
+        to: [{opacity: 0.3}, {opacity: 0.8}, 
+            {opacity: 0.3}, {opacity: 0.8}, 
+            {opacity: 0.3}, {opacity: 0.5}, 
+            {opacity: 0.7}, {opacity: 0.9}, 
+            {opacity: 1}], 
+            delay: 600, config: {duration: 20}
     }))
     const [showHeader, setShowHeader] = useState(false)
     const [showbuttons, setShowButtons] = useState(false)

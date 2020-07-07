@@ -620,13 +620,14 @@ main .projects-list .mobile-skills {
   main .projects-list > div:last-of-type {
     display: none;
   }
-  main .projects-list > div:first-of-type > div span button:first-of-type {
+  main .projects-list > div:first-of-type > div span button {
     display: none;
   }
-  main .projects-list > div:first-of-type > div span button:last-of-type {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
-    margin-bottom: 10px;
+  main .projects-list > div:first-of-type > div span a button {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    margin-top: 80px;
+    display: block;
   }
 }
 
