@@ -1,7 +1,9 @@
 import React, { useState, useContext } from 'react'
+import { useSpring, animated, config } from 'react-spring'
+import { NavLink } from 'react-router-dom'
 import Project from './Project'
 import Info from './info'
-import { useSpring, animated, config } from 'react-spring'
+import Button from '../Button'
 import { LangContext } from "../../store"
 import { projectsData } from '../../data'
 
@@ -30,17 +32,22 @@ function Projects() {
     const infoList = data.map((item, index) => {
         return(
             <span key={index}>
-            {isVisible[index] ? <Info visible={isVisible[index]} project={item} /> :
-            isVisible[6] ? <animated.div style={defaultInfo} className="default-info">
-                <h3>{toggleLang ? "Wybierz jeden z projektów" : "Select one project"}</h3>
-            </animated.div> : ""}
+                {isVisible[index] ? <Info visible={isVisible[index]} project={item} /> : 
+                    isVisible[6] ? 
+                        <animated.div style={defaultInfo} className="default-info">
+                            <h3>
+                                {toggleLang ? "Wybierz jeden z projektów" : "Select one project"}
+                            </h3>
+                        </animated.div> : ""}
             </span>
         )
     })
     return(
         <main>
             <animated.div style={showTitle} className="projects">
-                <animated.h1 style={showh1Anim}>{toggleLang ? "Projekty" : "Projects"}</animated.h1>
+                <animated.h1 style={showh1Anim}>
+                    {toggleLang ? "Projekty" : "Projects"}
+                </animated.h1>
             </animated.div>
             <div className="projects-list">
                 <div>
@@ -49,6 +56,14 @@ function Projects() {
                 <div>
                     {infoList}
                 </div>
+            </div>
+            <div style={{ marginBottom: 'calc(0px + 8vw)' }} className="buttons">
+                <NavLink exact to="/about-me">
+                    <Button text={toggleLang ? "O Mnie" : "About Me"} delay={1} />
+                </NavLink>
+                <NavLink exact to="/contact">
+                    <Button text={toggleLang ? "Kontakt" : "Contact"} delay={2} />
+                </NavLink>
             </div>
         </main>
     )

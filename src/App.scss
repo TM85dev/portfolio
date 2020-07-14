@@ -253,7 +253,6 @@ main {
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
-        margin-top: 100px;
         @media screen and (max-width: 596px) {
             flex-direction: column;
             align-items: center;
@@ -518,19 +517,20 @@ main {
     .info-about-me {
         margin: 60px 2%;
         padding: 20px 4% 40px 4%;
-        background-color: rgb(20, 20, 20);
+        background-color: rgb(31, 31, 31);
         box-shadow: 0 0 16px 0 rgb(107, 107, 107);
-        color: rgb(216, 216, 216);
+        color: rgb(233, 233, 233);
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: calc(8px + 0.4vw);
-        line-height: calc(18px + 0.4vw);
+        line-height: calc(18px + 0.6vw);
         strong {
             font-size: calc(30px + 0.4vw);
         }
         &::after {
             content: "";
             background-image: url("./pics/about-me.jpg");
+            filter: grayscale(0.5);
             background-position-x: center;
             position: absolute;
             top: 0;

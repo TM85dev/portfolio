@@ -50,20 +50,23 @@ function Project(props) {
                 style={button[0]} 
                 onMouseOver={() => hoverHandler(0)}
                 onMouseLeave={unhoverHandler}
-                onClick={clickHandler}
-            >{toggleLang ? "Więcej" : "More"}</animated.button>
+                onClick={clickHandler}>
+                    {toggleLang ? "Więcej" : "More"}
+            </animated.button>
             <a href={props.project.site} target="_blank" rel="noopener noreferrer">    
                 <animated.button 
                     style={button[1]} 
                     onMouseOver={() => hoverHandler(1)}
-                    onMouseLeave={unhoverHandler}
-                >{toggleLang ? "Uruchom" : "Life"}</animated.button>
+                    onMouseLeave={unhoverHandler}>
+                        {toggleLang ? "Uruchom" : "Life"}
+                </animated.button>
             </a>
             </animated.span>
             <animated.img 
                 style={{transform: s.interpolate(s => `scale(${s})`)}} 
                 src={props.project.link} 
-                alt={props.name} />
+                alt={props.name} 
+            />
             <p>{props.project.name}</p>
         </animated.div>
     )

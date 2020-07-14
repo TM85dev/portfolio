@@ -10,7 +10,11 @@
 
 # production
 /build
-
+/api/.env
+/public/assets
+/src/fonts
+/src/icons
+/src/pics
 # misc
 .DS_Store
 .env.local
@@ -23,8 +27,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .htaccess
-/api/.env
-/public/assets
-/src/fonts
-/src/icons
-/src/pics

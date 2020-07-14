@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { useSpring, animated, config } from 'react-spring'
+import { NavLink } from 'react-router-dom'
+import Button from '../Button'
 import Info from './info'
 import { LangContext } from '../../store'
 
@@ -33,6 +35,14 @@ function AboutMe() {
                     <Info />
                 </animated.div>
             </animated.div>
+            <div style={{ marginBottom: 'calc(0px + 8vw)' }} className="buttons">
+                <NavLink exact to="/contact">
+                    <Button text={toggleLang ? "Kontakt" : "Contact"} delay={2} />
+                </NavLink>
+                <NavLink exact to="/projects">
+                    <Button text={toggleLang ? "Projekty" : "Projects"} delay={1} />
+                </NavLink>
+            </div>
         </main>
     )
 }

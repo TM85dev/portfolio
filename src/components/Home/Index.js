@@ -4,7 +4,7 @@ import { useSpring, animated } from 'react-spring'
 import logo from "../../logo.png"
 import Header from './Header'
 import Paragraph from './Paragraph'
-import Button from './Button'
+import Button from '../Button'
 import { LangContext } from '../../store'
 
 function HomePage() {
@@ -38,14 +38,14 @@ function HomePage() {
             <animated.img style={logoAnim} src={logo} alt="logo" />
             {showHeader && <Header />}
             {showHeader && <Paragraph />}
-            <div className="buttons">
+            <div style={{ marginTop: '100px' }} className="buttons">
                 {showbuttons && 
                 <>
-                    <NavLink exact to="/about-me">
-                        <Button text={toggleLang ? "O Mnie" : "About Me"} delay={1} />
+                    <NavLink exact to="/skills">
+                        <Button text={toggleLang ? "Skille" : "Skills"} delay={1} />
                     </NavLink>
-                    <NavLink exact to="/contact">
-                        <Button text={toggleLang ? "Kontakt" : "Contact"} delay={2} />
+                    <NavLink exact to="/projects">
+                        <Button text={toggleLang ? "Projekty" : "Projects"} delay={2} />
                     </NavLink>
                 </>}
             </div>

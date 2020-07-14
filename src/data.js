@@ -167,7 +167,7 @@ export const skillsData = [
         icon: require('./icons/github.png')
     },
     {
-        name: "Redux", 
+        name: "Redux\n(basics)", 
         icon: require('./icons/redux.png')
     },
     {
@@ -219,3 +219,40 @@ export const skillsData = [
         icon: require('./icons/wordpress.png')
     },
 ]
+
+export const infoDataPL = {
+    line1: "Cześć, jestem Tomasz Mączka.",
+    line2: "Przez kilka lat pracowałem dla agencji reklamowych. Zajmowałem się:",
+    liA1: "tworzeniem projektów graficznych zarówno na potrzeby komputerów jak i przygotowaniem do druku,",
+    liA2: "projektowaniem plakatów, wizytówek,",
+    liA3: "drukowaniem,",
+    liA4: "tworzeniem prostych stron internetowych,",
+    liA5: "SEO dla małych i mikro firm,",
+    liA6: "tworzeniem internetowych kampanii reklamowych,",
+    liA7: "wgrywaniem witryn i przechowywaniem ich na serwerze.",
+    line3: "Pracowałem również w firmie hostingowej. Do moich obowiązków należało:",
+    liB1: "obsługa klienta,",
+    liB2: "migracja stron internetowych",
+    liB3: "pomoc i zarządzanie kontami klientów po stronie serwera (direct admin, isp config).",
+    line4: "Od ponad pół roku uczę się najnowszych technologii, w szczególności opartych o javascript.",
+    line5: "Moim celem jest dalszy rozwój, pogłębianie i przyswajanie najnowszych trendów w technologiach programowania takich jak javascript. W szczególności stack MERN.",
+    line6: "W wolnej chwili lubię odpoczywać uprawiając sport (biegi, rower, squash, siłownia), podróżując, ucząc się czegoś nowego o programowaniu i języku japońskim."
+}
+export const infoDataENG = {
+    line1: "Hello, I'm Tomasz Mączka.",
+    line2: "I worked for an advertising agency for several years. I dealt with:",
+    liA1: "creating graphic design for both computers and printing needs,",
+    liA2: "esigning posters, business cards,",
+    liA3: "print,",
+    liA4: "creating simple websites,",
+    liA5: "SEO for small and micro companies,",
+    liA6: "creating internet advertising campaigns,",
+    liA7: "uploading sites and keeping them on the server.",
+    line3: "I also worked in hosting company. My duties included:",
+    liB1: "customer service,",
+    liB2: "website migration,",
+    liB3: "help and management of client accounts from the server side (direct admin, isp config).",
+    line4: "For over half a year I have been learning the latest technologies, in particular based on javascript.",
+    line5: "My goal is to further develop, deepen and assimilate the latest trends in programming technologies like javascript. In particular, the MERN stack.",
+    line6: "After hours, I like to relax doing sports (running, bike, squash, gym), traveling, learning something new about programming and the Japanese language."
+}

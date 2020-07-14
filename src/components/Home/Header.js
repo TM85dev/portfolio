@@ -57,6 +57,9 @@ function Header() {
     }
 
     useEffect(() => {
+        if(toggleLang===true || toggleLang===false) {
+            document.querySelectorAll("main h1 span").forEach(letter => letter.style.opacity=1)
+        }
         setLoad1stPart(false)
         setLoad2ndPart(false)
         setPreventClick(true)
@@ -68,8 +71,8 @@ function Header() {
         }, 1200)
         setTimeout(() => {
             setPreventClick(false)
-        }, 3000)
-    }, [])
+        }, 4000)
+    }, [toggleLang])
     return(
         <h1>
             {toggleLang ? header.slice(0, 6) : header.slice(0, 3)}

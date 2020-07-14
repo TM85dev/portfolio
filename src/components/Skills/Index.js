@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useSpring, animated, config } from 'react-spring'
+import { NavLink } from 'react-router-dom'
 import Skill from './Skill'
+import Button from '../Button'
 import { LangContext }  from '../../store'
 import { skillsData } from '../../data'
 
@@ -42,21 +44,43 @@ function Skills() {
     return(
         <main>
             <animated.div style={showTitle} className="skills">
-                {h1Status ? <animated.h1 style={showh1Anim}>{toggleLang ? "Moje Skille" : "My Skills"}</animated.h1> : <h1>&nbsp;</h1>}
+                {h1Status ? 
+                    <animated.h1 style={showh1Anim}>
+                            {toggleLang ? "Moje Skille" : "My Skills"}
+                    </animated.h1> : 
+                <h1>&nbsp;</h1>}
             </animated.div>
-            <animated.h2 style={{transform: t1.interpolate(t1 => `translateY(${t1}px)`),
-                                opacity: o1.interpolate(o1 => o1)}}>{toggleLang ? "Główne" : "Main Stack"}</animated.h2>
-            <animated.hr style={{transform: t1.interpolate(t1 => `translateX(${t1}px)`),
-                                opacity: o1.interpolate(o1 => o1)}}/>
+            <animated.h2 style={{
+                transform: t1.interpolate(t1 => `translateY(${t1}px)`),
+                opacity: o1.interpolate(o1 => o1)}}>
+                    {toggleLang ? "Główne" : "Main Stack"}
+            </animated.h2>
+            <animated.hr style={{
+                transform: t1.interpolate(t1 => `translateX(${t1}px)`),
+                opacity: o1.interpolate(o1 => o1)}}
+            />
             <div className="skills-list">
                 {list.slice(0, 8)}
             </div>
-            <animated.h2 style={{transform: t2.interpolate(t2 => `translateY(${t2}px)`),
-                                opacity: o2.interpolate(o2 => o2)}}>{toggleLang ? "Pozostałe" : "Other Skills"}</animated.h2>
-            <animated.hr style={{transform: t2.interpolate(t2 => `translateX(${t2}px)`),
-                                opacity: o2.interpolate(o2 => o2)}} />
+            <animated.h2 style={{
+                transform: t2.interpolate(t2 => `translateY(${t2}px)`),
+                opacity: o2.interpolate(o2 => o2)}}>
+                    {toggleLang ? "Pozostałe" : "Other Skills"}
+            </animated.h2>
+            <animated.hr style={{
+                transform: t2.interpolate(t2 => `translateX(${t2}px)`),
+                opacity: o2.interpolate(o2 => o2)}} 
+            />
             <div className="skills-list other-skills">
                 {list.slice(8)}
+            </div>
+            <div style={{marginTop: 'calc(-50px + 2vw)', marginBottom: 'calc(0px + 10vw)'}} className="buttons">
+                <NavLink exact to="/projects">
+                    <Button text={toggleLang ? "Projekty" : "Projects"} delay={1} />
+                </NavLink>
+                <NavLink exact to="/about-me">
+                    <Button text={toggleLang ? "O Mnie" : "About Me"} delay={2} />
+                </NavLink>
             </div>
         </main>
     )

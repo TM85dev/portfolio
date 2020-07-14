@@ -10,8 +10,18 @@ function Button(props) {
     const [rightSideAnim, setRightSideAnim] = useSprings(rightArrows.length, index => ({
         transform: "translateX(20px)", opacity: 0, config: {mass:1, tension: 300, friction: 20}
     }))
-    const leftSide = rightArrows.map((item, index) => <animated.span style={leftSideAnim[index]} key={index}>{item}</animated.span>)
-    const rightSide = leftArrows.map((item, index) => <animated.span style={rightSideAnim[index]} key={index}>{item}</animated.span>)
+    const leftSide = rightArrows.map((item, index) => 
+        <animated.span 
+            style={leftSideAnim[index]} 
+            key={index}>
+                {item}
+        </animated.span>)
+    const rightSide = leftArrows.map((item, index) => 
+        <animated.span 
+            style={rightSideAnim[index]}
+            key={index}>
+                {item}
+        </animated.span>)
     const [buttonAnim, setButtonAnim] = useSpring(() => ({
         backgroundColor: "rgba(250, 0, 0, 0)", opacity: 0
     }))

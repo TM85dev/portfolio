@@ -27,7 +27,7 @@ function Email() {
                     style={letterAnim[index]}
                     onMouseOver={() => hoverHandler(index)}
                     onMouseLeave={unhoverHandler}>
-                    {letter}
+                        {letter}
                 </animated.span>
             ))}
         </a>

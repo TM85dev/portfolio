@@ -123,12 +123,16 @@ function Contact() {
                         messageSend={messageSend} 
                     />
                     <animated.span style={showMessage}>
-                        {toggleLang ? (messageSend ? "Wiadomość wysłano!" :
-                        !validate[0] || !validate[1] || !validate[2] ? "Wypełnij wszystkie pola!" :
-                        validate[3]===false ? "Captcha jest wymagana!" : "\xA0") : 
-                        (messageSend ? "Message has been send!" :
-                        !validate[0] || !validate[1] || !validate[2] ? "Please fill all fields!" :
-                        validate[3]===false ? "Captcha is required!" : "\xA0")}
+                        {toggleLang ? 
+                            (messageSend ? "Wiadomość wysłano!" :
+                            !validate[0] || !validate[1] || !validate[2] ? 
+                                "Wypełnij wszystkie pola!" :
+                            validate[3]===false ? "Captcha jest wymagana!" : "\xA0")
+                        : 
+                            (messageSend ? "Message has been send!" :
+                            !validate[0] || !validate[1] || !validate[2] ? 
+                                "Please fill all fields!" :
+                            validate[3]===false ? "Captcha is required!" : "\xA0")}
                     </animated.span>
                     <button style={{
                             pointerEvents: messageSend ? "none" : "auto", 
