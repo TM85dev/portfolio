@@ -8,6 +8,7 @@ function Info() {
     return(
         <>
         <span><strong>{data.line1.slice(0,1)}</strong>{data.line1.slice(1)}</span>
+        <br/>
         {data.line2} 
         <ul>
             <li>{data.liA1}</li>
@@ -18,16 +19,18 @@ function Info() {
             <li>{data.liA6}</li>
             <li>{data.liA7}</li>
         </ul>
+        <br/>
         {data.line3}
         <ul>
             <li>{data.liB1}</li>
             <li>{data.liB2}</li>
             <li>{data.liB3}</li>
         </ul>
-        {data.line4}<br/>
-        {data.line5}<br/>
+        <br/>
+        <span><strong>{data.line4.slice(0,1)}</strong>{data.line4.slice(1)}</span><br/>
+        <span><strong>{data.line5.slice(0,1)}</strong>{data.line5.slice(1)}</span><br/>
         <hr/>
-        {data.line6}
+        <span><strong>{data.line6.slice(0,1)}</strong>{data.line6.slice(1)}</span><br/>
         </>
     )
 }

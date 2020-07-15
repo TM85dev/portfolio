@@ -10,42 +10,53 @@ import Contact from './components/Contact'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { LangContext } from './store';
 
+function Site() {
+  return (
+    <Router>
+        <header>
+            <MainMenu />
+        </header>
+        <Switch>
+            <Route exact path="/">
+                <HomePage />
+            </Route>
+            <Route exact path="/skills">
+                <Skills />
+            </Route>
+            <Route exact path="/projects">
+                <Projects />
+            </Route>
+            <Route exact path="/about-me">
+                <AboutMe />
+            </Route>
+            <Route exact path="/contact">
+                <Contact />
+            </Route>
+        </Switch>
+    </Router>
+  );
+}
 
 function App() {
   const [toggleLang, setToggleLang] = useState(true)
   const [loading, setLoading] = useState(true)
-  const site = <header>
-                  <MainMenu />
-               </header>
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false)
-    }, 2300)
+    const pageLoaded = () => {
+      setTimeout(() => {
+        setLoading(false)
+      }, 2000)
+      console.log('page fully loaded')
+    }
+    window.addEventListener('load', pageLoaded)
+    return () => {
+      window.removeEventListener('load', pageLoaded)
+    }
   }, [])
   return (
     <div className="app">
       <LangContext.Provider value={[toggleLang, setToggleLang]} >
-      <Router>
-        {loading ? <Loading /> : site}
-        <Switch>
-          <Route exact path="/">
-            {loading ? "" : <HomePage />}
-          </Route>
-          <Route exact path="/skills">
-            {loading ? "" : <Skills />}
-          </Route>
-          <Route exact path="/projects">
-            {loading ? "" : <Projects />}
-          </Route>
-          <Route exact path="/about-me">
-            {loading ? "" : <AboutMe />}
-          </Route>
-          <Route exact path="/contact">
-            {loading ? "" : <Contact />}
-          </Route>
-        </Switch>
-      </Router>
-      </LangContext.Provider>
+          {loading ? <Loading /> : <Site />}
+          </LangContext.Provider>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSpring, animated, config } from 'react-spring'
 import logo from '../logo.png'
 
@@ -9,23 +9,25 @@ function Loading() {
         delay: 500,
         config: {duration: 1500}
     })
-    const [show, setShow] = useSpring( () => ({
+    const [show] = useSpring( () => ({
         from: {transform: "translateX(-100px)", opacity: 0},
         to: {transform: "translateX(0px)", opacity: 1}, 
         config: config.wobbly
     }))
-    useEffect(() => {
-        setTimeout(() => {
-            setShow(() => ({
-                transform: "translateX(100px)", opacity: 0
-            }))
+    // useEffect(() => {
+    //     // setTimeout(() => {
+    //     //     setShow(() => ({
+    //     //         transform: "translateX(100px)", opacity: 0
+    //     //     }))
 
-        }, 2000)
-    })
+    //     // }, 2000)
+    // })
     return(
         <animated.div style={show} className="loading">
             <div><img src={logo} alt="logo" /></div>
-            <div><animated.span style={loadingAnim}></animated.span></div>
+            <div>
+                <animated.span style={loadingAnim} className="progress-bar"></animated.span>
+            </div>
             <div>loading...</div>
         </animated.div>
     )

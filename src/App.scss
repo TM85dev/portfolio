@@ -174,10 +174,15 @@ nav {
         box-shadow: 0 0 4px 1px black;
         border-radius: 5px;
         margin-bottom: 4px;
+        animation: shine 0.6s alternate-reverse infinite ease-in-out;
         span {
             display: block;
             height: 5px;
             background-color: red;
+        }
+        @keyframes shine {
+            from {opacity: 1}
+            to {opacity: 0.6}
         }
     }
 }
@@ -527,6 +532,12 @@ main {
         strong {
             font-size: calc(30px + 0.4vw);
         }
+        span:nth-of-type(2) strong,
+        span:nth-of-type(3) strong,
+        span:nth-of-type(4) strong {
+            font-size: calc(16px + 0.4vw);
+            font-weight: 600;
+        }
         &::after {
             content: "";
             background-image: url("./pics/about-me.jpg");
@@ -540,6 +551,38 @@ main {
             z-index: -1;
             opacity: 0.3;
         }
+        ul {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 0;
+            border-radius: 6px;
+            box-shadow: 0 0 6px 0 gray;
+            transition: box-shadow 0.4s;
+            &:hover {
+                box-shadow: 2px 2px 6px 0 gray;
+            }
+            li {
+                display: block;
+                color: rgb(233, 233, 233);
+                transition: color 0.4s;
+                margin-left: 30px;
+                margin-right: 6px;
+                cursor: default;
+                &::before {
+                    content: "✔";
+                    color:greenyellow;
+                    transition: color 0.4s;
+                    display: inline-block;
+                    margin-left: -16px;
+                    margin-right: 4px;
+                }
+                &:hover {
+                    color: rgb(255, 255, 255);
+                    &::before {
+                        color: rgb(223, 255, 176);
+                    }
+                }
+            }
+        } 
         div>span:first-of-type {
             display: block;
             margin-bottom: calc(3px + 0.4vw);
