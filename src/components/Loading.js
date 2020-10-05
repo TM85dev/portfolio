@@ -14,14 +14,6 @@ function Loading() {
         to: {transform: "translateX(0px)", opacity: 1}, 
         config: config.wobbly
     }))
-    // useEffect(() => {
-    //     // setTimeout(() => {
-    //     //     setShow(() => ({
-    //     //         transform: "translateX(100px)", opacity: 0
-    //     //     }))
-
-    //     // }, 2000)
-    // })
     return(
         <animated.div style={show} className="loading">
             <div><img src={logo} alt="logo" /></div>

@@ -41,6 +41,13 @@ export const projectsData = [
         tech: ["React","React-Router", "React-Spring", "Express", "Axios"], 
         site: "http://tm-dev.pl/"
     },
+    {
+        id: 6,
+        name: "Faktura Project",
+        link: require("./pics/faktura.jpg"),
+        tech: ["React", "Redux", "React-Spring"],
+        site: "http://tm-dev.pl/faktura"
+    }
 ]
 
 export const menuDataPL = [
@@ -167,7 +174,7 @@ export const skillsData = [
         icon: require('./icons/github.png')
     },
     {
-        name: "Redux\n(basics)", 
+        name: "Redux", 
         icon: require('./icons/redux.png')
     },
     {
@@ -179,7 +186,7 @@ export const skillsData = [
         icon: require('./icons/corel.png')
     },
     {
-        name: "Linux\n(basics)", 
+        name: "Linux", 
         icon: require('./icons/linux.png')
     },
     {
@@ -191,11 +198,11 @@ export const skillsData = [
         icon: require('./icons/bootstrap.png')
     },
     {
-        name: "express\n(basics)", 
+        name: "express", 
         icon: require('./icons/express.png')
     },
     {
-        name: "mongodb\n(basics)", 
+        name: "mongodb", 
         icon: require('./icons/mongodb.png')
     },
     {
@@ -203,15 +210,15 @@ export const skillsData = [
         icon: require('./icons/animejs.png')
     },
     {
-        name: "PHP\n(basics)", 
+        name: "PHP", 
         icon: require('./icons/php.png')
     },
     {
-        name: "Laravel\n(basics)", 
+        name: "Laravel", 
         icon: require('./icons/laravel.png')
     },
     {
-        name: "Mariadb\n(basics)", 
+        name: "Mariadb", 
         icon: require('./icons/mariadb.png')
     },
     {
