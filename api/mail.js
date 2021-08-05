@@ -24,7 +24,7 @@ app.post("/mail", (req, res) => {
         port: process.env.MAIL_PORT,
         secure: true,
         auth: {
-          user: 'tom@tm-dev.pl',
+          user: '',
           pass: process.env.PASS
         }
       });
