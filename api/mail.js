@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(cors())
 
-// app.get("/", (req, res) => {
-//     res.send("Welcome to back-end ;)")
-// })
+app.get("/", (req, res) => {
+    res.send("Welcome to back-end ;)")
+})
 
 app.post("/mail", (req, res) => {
     const data = req.body

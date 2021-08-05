@@ -39,7 +39,7 @@ export const projectsData = [
         name: "Portfolio Project", 
         link: require("./pics/portfolio.jpg"), 
         tech: ["React","React-Router", "React-Spring", "Express", "Axios"], 
-        site: "http://tm-dev.pl/"
+        site: "http://tm-dev.pl/portfolio/"
     },
     {
         id: 6,
@@ -55,31 +55,31 @@ export const menuDataPL = [
         id:0, 
         name: "Główna", 
         icon: "flaticon-home", 
-        route: "/"
+        route: "/portfolio/"
     },
     {
         id:1, 
         name: "Skille", 
         icon: "flaticon-wrench", 
-        route: "/skills"
+        route: "/portfolio/skills"
     },
     {
         id:2, 
         name: "Projekty", 
         icon: "flaticon-monitor", 
-        route: "/projects"
+        route: "/portfolio/projects"
     },
     {
         id:3, 
         name: "O_Mnie", 
         icon: "flaticon-person", 
-        route: "/about-me"
+        route: "/portfolio/about-me"
     },
     {
         id:4, 
         name: "Kontakt", 
         icon: "flaticon-contact", 
-        route: "/contact"
+        route: "/portfolio/contact"
     },
     {
         id:5, 
@@ -100,31 +100,31 @@ export const menuDataENG = [
         id:0, 
         name: "Home", 
         icon: "flaticon-home", 
-        route: "/"
+        route: "/portfolio/"
     },
     {
         id:1, 
         name: "Skills", 
         icon: "flaticon-wrench", 
-        route: "/skills"
+        route: "/portfolio/skills"
     },
     {
         id:2, 
         name: "Projects", 
         icon: "flaticon-monitor", 
-        route: "/projects"
+        route: "/portfolio/projects"
     },
     {
         id:3, 
         name: "About_Me", 
         icon: "flaticon-person", 
-        route: "/about-me"
+        route: "/portfolio/about-me"
     },
     {
         id:4, 
         name: "Contact", 
         icon: "flaticon-contact", 
-        route: "/contact"
+        route: "/portfolio/contact"
     },
     {
         id:5, 
@@ -241,7 +241,7 @@ export const infoDataPL = {
     liB1: "obsługa klienta,",
     liB2: "migracja stron internetowych",
     liB3: "pomoc i zarządzanie kontami klientów po stronie serwera (direct admin, isp config).",
-    line4: "Od ponad pół roku uczę się najnowszych technologii, w szczególności opartych o javascript.",
+    line4: "Od od około roku uczę się najnowszych technologii, w szczególności opartych o javascript.",
     line5: "Moim celem jest dalszy rozwój, pogłębianie i przyswajanie najnowszych trendów w technologiach programowania takich jak javascript. W szczególności stack MERN.",
     line6: "W wolnej chwili lubię odpoczywać uprawiając sport (biegi, rower, squash, siłownia), podróżując, ucząc się czegoś nowego o programowaniu i języku japońskim."
 }
@@ -259,7 +259,7 @@ export const infoDataENG = {
     liB1: "customer service,",
     liB2: "website migration,",
     liB3: "help and management of client accounts from the server side (direct admin, isp config).",
-    line4: "For over half a year I have been learning the latest technologies, in particular based on javascript.",
+    line4: "For over a year I have been learning the latest technologies, in particular based on javascript.",
     line5: "My goal is to further develop, deepen and assimilate the latest trends in programming technologies like javascript. In particular, the MERN stack.",
     line6: "After hours, I like to relax doing sports (running, bike, squash, gym), traveling, learning something new about programming and the Japanese language."
 }

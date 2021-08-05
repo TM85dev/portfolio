@@ -17,19 +17,19 @@ function Site() {
             <MainMenu />
         </header>
         <Switch>
-            <Route exact path="/">
+            <Route exact path="/portfolio/">
                 <HomePage />
             </Route>
-            <Route exact path="/skills">
+            <Route exact path="/portfolio/skills">
                 <Skills />
             </Route>
-            <Route exact path="/projects">
+            <Route exact path="/portfolio/projects">
                 <Projects />
             </Route>
-            <Route exact path="/about-me">
+            <Route exact path="/portfolio/about-me">
                 <AboutMe />
             </Route>
-            <Route exact path="/contact">
+            <Route exact path="/portfolio/contact">
                 <Contact />
             </Route>
         </Switch>
